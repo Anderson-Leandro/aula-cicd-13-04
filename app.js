@@ -3,11 +3,15 @@ dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
 
+const middlewareError = require('./errors/errors')
+
 const app = express();
 app.use(express.json());
 
 const contatoRouter = require('./routes/contatoRoutes');
 app.use('/contatos', contatoRouter);
+
+app.use(middlewareError);
 
 // mongoose.connect(process.env.MONGODB_URI, {
 //   useNewUrlParser: true,
