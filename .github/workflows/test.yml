@@ -8,6 +8,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    environment: teste
 
     steps:
       - name: Checkout code
@@ -26,3 +27,4 @@ jobs:
           MONGODB_URI: ${{secrets.MONGODB_URI}}
           PORT: ${{vars.PORT}}
         run: npm test
+
